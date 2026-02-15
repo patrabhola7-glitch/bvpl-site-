@@ -1,3 +1,4 @@
+alert("JS connected");
 const teams = {
     looser11: {
         name: "Looser 11",
