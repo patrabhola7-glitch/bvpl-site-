@@ -57,6 +57,56 @@ const teams = {
   }
 };
 
+// Attach click events to all team divs
+document.querySelectorAll('.team').forEach(div => {
+  div.addEventListener('click', () => {
+    const teamKey = div.getAttribute('data-team');
+    showPlayers(teamKey);
+  });
+});
+
+function showPlayers(teamKey) {
+  const section = document.getElementById("playerSection");
+  const team = teams[teamKey];
+
+  let html = `<h2>${team.name}</h2>`;
+  html += `<p>মোট খেলোয়াড়: ${team.players.length}</p>`;
+  html += `<div class="players">`;
+
+  team.players.forEach(p => {
+    html += `
+      <div class="player">
+        <img src="${p.img}" alt="${p.name}">
+        <p>${p.name}</p>
+      </div>
+    `;
+  });
+
+  html += `</div>`;
+  section.innerHTML = html;
+}      { name: "অর্পণ", img: "images/jayanta/arpan.jpg" },
+      { name: "সুব্রত", img: "images/jayanta/subrata.jpg" },
+      { name: "শঙ্খ", img: "images/jayanta/shankha.jpg" },
+      { name: "দেবাঞ্জন", img: "images/jayanta/debanjan.jpg" },
+      { name: "দেবজিৎ", img: "images/jayanta/debajit.jpg" }
+    ]
+  },
+
+  rahul: {
+    name: "RAHUL's Team",
+    players: [
+      { name: "অরিন্দম", img: "images/rahul/arindam.jpg" },
+      { name: "কাজু", img: "images/rahul/kaju.jpg" },
+      { name: "ইন্দ্রজিৎ", img: "images/rahul/indrajit.jpg" },
+      { name: "কৌশিক", img: "images/rahul/kaushik.jpg" },
+      { name: "সৌমেন্দু", img: "images/rahul/soumendu.jpg" },
+      { name: "পিন্টু", img: "images/rahul/pintu.jpg" },
+      { name: "সৌম্যজিৎ", img: "images/rahul/soumyajit.jpg" },
+      { name: "পলাশ", img: "images/rahul/palash.jpg" }
+    ]
+  }
+};
+
 function showPlayers(teamKey) {
   const section = document.getElementById("playerSection");
   const team = teams[teamKey];
